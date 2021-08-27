@@ -1,0 +1,11 @@
+    [c/FF0093:F][c/FF005D:o][c/FF0000:x's]
+[c/FF3A00: Add][c/FF6100:on R][c/FFBA00:ace!]
+
+This mods add a [c/FF0093:Fo][c/FF005D:xk][c/FF0000:in] Race to MrPlaguesRace's mod!
+I've been working on this mod for quite a long time
+and im gonna update this mod whenever i can
+
+[c/FF0093:Cr][c/FF005D:edi][c/FF0000:ts:]
+[c/FFBA00:-] MrPlague (The literal base of the mod)
+[c/FFBA00:-] Shaggy (some help with code)
+[c/FFBA00:-] FoxReeor(Me) (made the race sprites and added some stats)
