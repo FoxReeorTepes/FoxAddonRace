@@ -16,24 +16,34 @@ namespace FoxAddonRace.Common.Races.Foxkin
         public override string RaceDisplayFemaleIcon => ($"FoxAddonRace/Common/UI/RaceDisplay/FoxkinDisplayFemale");
         
         public override string RaceDisplayName => "Foxkin Species";
-        public override string RaceLore1 => "This race has " + "\nan mysterious" + "\nconnection to " + "\nThe Dark Magic";
+        public override string RaceLore1 => "This race has " + "\ngreat agility" + "\n and movement" + "\n speed";
         public override string RaceLore2 => "The race was unknown" + "\nfor a long time in history" + "\nuntil when the" + "\nGreat Inventor found them";
-
+		public override string RaceAbilityName => "Danger! [i:43]";
+		public override string RaceAbilityDescription1 => "|----------------------------------------|";
+		public override string RaceAbilityDescription2 => "Your Movement speed increases when";
+		public override string RaceAbilityDescription3 => "[c/34EB93:Race Ability Key] is pressed";
+		public override string RaceAbilityDescription4 => "[c/FF4F64:(you probably need to bound the key!)]";
+		public override string RaceAbilityDescription5 => "|----------------------------------------|";
+		public override string RaceAbilityDescription6 => "";
+		public override string RaceAdditionalNotesDescription1 => "- [c/34EB93:+3] minion slot";
+		public override string RaceAdditionalNotesDescription2 => "- [c/34EB93:+2] sentry slot";
+		public override string RaceAdditionalNotesDescription3 => "- [c/34EB93:+40] fall damage resistance";
+		public override string RaceAdditionalNotesDescription4 => "";
+		public override string RaceAdditionalNotesDescription5 => "";
+		public override string RaceAdditionalNotesDescription6 => "";
 		public override bool UsesCustomHurtSound => true;
 		public override bool UsesCustomDeathSound => false;
 		public override bool HasFemaleHurtSound => false;
 
-		public override string RaceHealthDisplayText => "[c/34EB93:+10%]";
-		public override string RaceRegenerationDisplayText => "[c/34EB93:+2]";
-		public override string RaceManaDisplayText => "[c/34EB93:+50%]";
-		public override string RaceManaRegenerationDisplayText => "[c/34EB93:+100]";
+		public override string RaceHealthDisplayText => "[c/FF4F64:-10%]";
+		public override string RaceRegenerationDisplayText => "[c/34EB93:+4]";
 		public override string RaceDefenseDisplayText => "[c/FF4F64:-5]";
-		public override string RaceMagicDamageDisplayText => "[c/34EB93:+25%]";
-		public override string RaceSummonDamageDisplayText => "[c/34EB93:+30%]";
-        public override string RaceMeleeDamageDisplayText => "[c/FF4F64:-40%]";
-		public override string RaceManaCostDisplayText => "[c/34EB93:-20%]";
-		public override string RaceMinionsDisplayText => "[c/34EB93:+4]";
-		public override string RaceSentriesDisplayText => "[c/34EB93:+4]";
+        public override string RaceMeleeDamageDisplayText => "[c/FF4F64:-20%]";
+		public override string RaceRunSpeedDisplayText => "[c/34EB93:+10%]";
+        public override string RaceRunAccelerationDisplayText => "[c/34EB93:+20%]";
+		public override string RaceMovementSpeedDisplayText => "[c/34EB93:+35%]";
+		public override string RaceJumpSpeedDisplayText => "[c/34EB93:+200%]";
+		public override string RaceRangedDamageDisplayText => "[c/34EB93:+20%]";
 
 		
 		public override string RaceGoodBiomesDisplayText => "Underground Tundra, Tundra ";
@@ -72,7 +82,7 @@ namespace FoxAddonRace.Common.Races.Foxkin
 			var modPlayer = player.GetModPlayer<MrPlagueRaces.MrPlagueRacesPlayer>();
 			if (modPlayer.RaceStats)
 			{
-				player.statLife += 50;
+				player.statLife -= 50;
 			}
 		}
 
@@ -83,19 +93,34 @@ namespace FoxAddonRace.Common.Races.Foxkin
             var modPlayer = player.GetModPlayer<MrPlagueRaces.MrPlagueRacesPlayer>();
             if (modPlayer.RaceStats)
             {
-                player.statLifeMax2 += (player.statLifeMax2 / 10);
-                player.lifeRegen += 2;
-                player.statManaMax2 += (player.statManaMax2 / 2);
-                player.manaRegenBonus += 100;
+                player.statLifeMax2 -= (player.statLifeMax2 / 10);
+                player.lifeRegen += 4;
                 player.statDefense -= 5;
-                player.meleeDamage -= 0.4f;
-                player.magicDamage += 0.25f;
+                player.meleeDamage -= 0.2f;
+                player.magicDamage += 0.2f;
                 player.manaCost -= 0.2f;
-                player.maxMinions += 4;
-                player.maxTurrets += 4;
-                player.extraFall += 100;
+                player.maxMinions += 3;
+                player.maxTurrets += 2;
+                player.extraFall += 40;
+                player.maxRunSpeed += 0.1f;
+                player.runAcceleration += 0.2f;
+                player.moveSpeed += 0.35f;
+				player.jumpSpeedBoost += 2f;
+				player.rangedDamage += 0.20f;
 			}
         }
+
+		public override void ProcessTriggers(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRaces.MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				if (MrPlagueRaces.MrPlagueRaces.RacialAbilityHotKey.Current && !player.dead)
+				{
+					player.AddBuff(3, 7200, true);
+				}
+			}
+		}
 
 		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
         {

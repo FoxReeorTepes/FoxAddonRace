@@ -1,4 +1,4 @@
 displayName = [i:1821][c/FF3A00:Fox's Addon Race!][c/72FF00: (WIP)]
 author = FoxReeor Tepes
 modReferences = MrPlagueRaces
-version = 0.8
+version = 0.12

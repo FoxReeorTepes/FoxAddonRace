@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\references\tModLoader.targets" />
   <PropertyGroup>
@@ -12,5 +12,8 @@
   </Target>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+    <Content Include="Items\Armor\DrKMask.cs" />
+    <Content Include="Common\Races\Foxkin.cs" />
+    <Content Include="Items\Accessories\DrKAccessory.cs" />
   </ItemGroup>
 </Project>
