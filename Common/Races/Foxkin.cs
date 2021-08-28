@@ -41,7 +41,7 @@ namespace FoxAddonRace.Common.Races.Foxkin
         public override string RaceMeleeDamageDisplayText => "[c/FF4F64:-20%]";
 		public override string RaceRunSpeedDisplayText => "[c/34EB93:+10%]";
         public override string RaceRunAccelerationDisplayText => "[c/34EB93:+20%]";
-		public override string RaceMovementSpeedDisplayText => "[c/34EB93:+35%]";
+		public override string RaceMovementSpeedDisplayText => "[c/34EB93:+20%]";
 		public override string RaceJumpSpeedDisplayText => "[c/34EB93:+200%]";
 		public override string RaceRangedDamageDisplayText => "[c/34EB93:+20%]";
 
@@ -104,7 +104,7 @@ namespace FoxAddonRace.Common.Races.Foxkin
                 player.extraFall += 40;
                 player.maxRunSpeed += 0.1f;
                 player.runAcceleration += 0.2f;
-                player.moveSpeed += 0.35f;
+                player.moveSpeed += 0.10f;
 				player.jumpSpeedBoost += 2f;
 				player.rangedDamage += 0.20f;
 			}
